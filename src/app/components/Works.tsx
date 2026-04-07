@@ -7,12 +7,13 @@ import { WorkCard } from './WorkCard';
 
 const SELECTED_WORKS = [
     {
-        title: "Tolu Aina",
-        category: "Portfolio • Blog",
-        description: "A beautifully crafted portfolio website showcasing creative work with a powerful backend. Features seamless API integration for dynamic blog content delivery and a custom API-powered CMS for effortless updates.",
-        image: "/Tolu-Aina.png",
-        href: "https://thetolulopeaina.com/",
-        context: { type: 'work' as const, organization: 'Thinktech' }
+        title: "Bloqain",
+        category: "Web3 • Decentralized Messaging",
+        description: "A revolutionary decentralized messaging protocol built for ultimate privacy and sovereign communication. Powered by immutable smart contracts and a sleek, user-centric interface that redefines digital interaction.",
+        image: "/bloqain.png",
+        href: "https://bloqain.vercel.app/",
+        isOpenSource: true,
+        context: { type: 'personal' as const }
     },
     {
         title: "Bont",
@@ -20,6 +21,7 @@ const SELECTED_WORKS = [
         description: "A state-of-the-art NFT minting platform built for the next generation of digital assets. Featuring seamless wallet integration, real-time transaction tracking, and a sleek, high-conversion interface designed for modern collectors.",
         image: "/bont.png",
         href: "https://bont-rosy.vercel.app/",
+        isOpenSource: true,
         context: { type: 'personal' as const }
     },
     {
@@ -28,7 +30,16 @@ const SELECTED_WORKS = [
         description: "A professional-grade decentralized payment system designed for secure asset transfers. Engineered with advanced Solidity smart contracts and a sleek glassmorphism UI to redefine the Web3 transaction experience.",
         image: "/MetaSend.png",
         href: "https://meta-send.vercel.app/",
+        isOpenSource: true,
         context: { type: 'personal' as const }
+    },
+    {
+        title: "Tolu Aina",
+        category: "Portfolio • Blog",
+        description: "A beautifully crafted portfolio website showcasing creative work with a powerful backend. Features seamless API integration for dynamic blog content delivery and a custom API-powered CMS for effortless updates.",
+        image: "/Tolu-Aina.png",
+        href: "https://thetolulopeaina.com/",
+        context: { type: 'work' as const, organization: 'Thinktech' }
     },
     {
         title: "Thinktech",
@@ -71,6 +82,7 @@ export function Works() {
                             description={work.description}
                             image={work.image}
                             href={work.href}
+                            isOpenSource={work.isOpenSource}
                             context={work.context}
                             // Stagger the cards slightly for visual interest if needed, 
                             // or use 'md:translate-y-12' on every second card for an offset grid look

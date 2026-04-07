@@ -12,10 +12,11 @@ export interface WorkCardProps {
     image: string;
     href?: string;
     className?: string;
+    isOpenSource?: boolean;
     context?: { type: 'personal' } | { type: 'work'; organization: string } | { type: 'freelance' };
 }
 
-export function WorkCard({ title, category, description, image, href = "#", className, context }: WorkCardProps) {
+export function WorkCard({ title, category, description, image, href = "#", className, isOpenSource, context }: WorkCardProps) {
     const cardRef = useRef<HTMLAnchorElement>(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
@@ -111,45 +112,58 @@ export function WorkCard({ title, category, description, image, href = "#", clas
                             {title}
                         </h3>
 
-                        {/* Context Badge */}
-                        {context && (
-                            <div className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 text-gray-500">
-                                {context.type === 'personal' ? (
-                                    <>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                            <circle cx="12" cy="7" r="4" />
-                                        </svg>
-                                        <span className="text-xs font-medium whitespace-nowrap">Personal Project</span>
-                                    </>
-                                ) : context.type === 'freelance' ? (
-                                    <>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                                            <rect width="20" height="14" x="2" y="6" rx="2" />
-                                        </svg>
-                                        <span className="text-xs font-medium whitespace-nowrap">Freelance</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
-                                            <path d="M9 22v-4h6v4" />
-                                            <path d="M8 6h.01" />
-                                            <path d="M16 6h.01" />
-                                            <path d="M12 6h.01" />
-                                            <path d="M12 10h.01" />
-                                            <path d="M12 14h.01" />
-                                            <path d="M16 10h.01" />
-                                            <path d="M16 14h.01" />
-                                            <path d="M8 10h.01" />
-                                            <path d="M8 14h.01" />
-                                        </svg>
-                                        <span className="text-xs font-medium whitespace-nowrap">Built at {context.organization}</span>
-                                    </>
-                                )}
-                            </div>
-                        )}
+                        {/* Context Badges */}
+                        <div className="flex flex-wrap items-center gap-2">
+                            {isOpenSource && (
+                                <div className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M9 18l6-6-6-6" />
+                                        <path d="M15 12H3" />
+                                        <circle cx="18" cy="12" r="3" />
+                                    </svg>
+                                    <span className="text-xs font-semibold whitespace-nowrap">Open Source</span>
+                                </div>
+                            )}
+
+                            {context && (
+                                <div className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 text-gray-500">
+                                    {context.type === 'personal' ? (
+                                        <>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                                <circle cx="12" cy="7" r="4" />
+                                            </svg>
+                                            <span className="text-xs font-medium whitespace-nowrap">Personal Project</span>
+                                        </>
+                                    ) : context.type === 'freelance' ? (
+                                        <>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                                <rect width="20" height="14" x="2" y="6" rx="2" />
+                                            </svg>
+                                            <span className="text-xs font-medium whitespace-nowrap">Freelance</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+                                                <path d="M9 22v-4h6v4" />
+                                                <path d="M8 6h.01" />
+                                                <path d="M16 6h.01" />
+                                                <path d="M12 6h.01" />
+                                                <path d="M12 10h.01" />
+                                                <path d="M12 14h.01" />
+                                                <path d="M16 10h.01" />
+                                                <path d="M16 14h.01" />
+                                                <path d="M8 10h.01" />
+                                                <path d="M8 14h.01" />
+                                            </svg>
+                                            <span className="text-xs font-medium whitespace-nowrap">Built at {context.organization}</span>
+                                        </>
+                                    )}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* Description */}
