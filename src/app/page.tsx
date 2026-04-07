@@ -9,13 +9,13 @@ import { Testimonials } from "./components/Testimonials";
 import Footer from "./components/Footer";
 
 const SHOWCASE_PROJECTS = [
-  { title: "Bind", src: "/Bind.png", badge: "Fintech", color: "bg-blue-600", headline: "Unified Layer for Business Logic" },
+  { title: "Bloqain", src: "/bloqain.png", badge: "Web3 • Messaging", color: "bg-indigo-600", headline: "Decentralized Sovereign Content" },
+  { title: "Bont", src: "/bont.png", badge: "Web3 • NFT", color: "bg-blue-500", headline: "Next-Gen NFT Minting Protocol" },
+  { title: "MetaSend", src: "/MetaSend.png", badge: "Web3 • Payments", color: "bg-violet-600", headline: "Streamlined Blockchain Payments" },
   { title: "Cloudflow", src: "/Cloudflow.png", badge: "AI • SaaS", color: "bg-sky-500", headline: "AI-Powered Coding in the Cloud" },
   { title: "EON", src: "/EON.png", badge: "Agency", color: "bg-neutral-900", headline: "Timeless Design for Infinite Scale" },
   { title: "Oyin x Timi", src: "/Oyin-Timi.png", badge: "Wedding", color: "bg-stone-800", headline: "Celebrating Love & Unity" },
   { title: "Rare UI", src: "/Rare-ui.png", badge: "UI Library", color: "bg-cyan-400", headline: "Stand Out. Stand Firm." },
-  { title: "Thinktech", src: "/Thinktech.png", badge: "Agency", color: "bg-blue-600", headline: "Innovative Technology Solutions" },
-  { title: "Tolu Aina", src: "/Tolu-Aina.png", badge: "Portfolio", color: "bg-purple-400", headline: "Exploring Passions, Creating Paths" },
 ];
 
 export default function Home() {
