@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "Tobi Israel | Developer Portfolio",
   description: "Beyond the Threshold - Developer Portfolio",
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/favicon-logo.svg",
+    shortcut: "/favicon-logo.svg",
+    apple: "/favicon-logo.svg",
   },
 };
 
